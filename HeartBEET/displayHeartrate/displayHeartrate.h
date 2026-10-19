@@ -8,6 +8,6 @@ void setupOled() {
 
 void displayHeartrate(int heartRate){
   Oled.setFont(u8x8_font_chroma48medium8_r);
-  Oled.setCursor(0, 33);
-  Oled.print(String(heartRate));
+  Oled.setCursor(0, 5);
+  Oled.println(String(heartRate));
 }
