@@ -1,14 +1,11 @@
 #include <Wire.h>
 
-unsigned char heartRate = 'a';
-
 void setup() {
   setupHeartmonitor();
 }
 
 void loop() {
-  readHeartrate();
-  Serial.println(heartRate, DEC);
+  Serial.println(readHeartrate(), DEC);
   delay(500);
 }
 
@@ -19,15 +16,11 @@ void setupHeartmonitor() {
   Wire.begin();
 }
 
-void readHeartrate() {
-  Serial.println("Enter");
+unsigned char readHeartrate() {
   Wire.requestFrom(0xA0 >> 1, 1);    // request 1 bytes from slave device
-  Serial.println("Wire requested");
   while(Wire.available()) {          // slave may send less than requested
-    Serial.println("Wire Availbile");
-    unsigned char c = Wire.read();
-    Serial.println("Return C");   // receive heart rate value (a byte)
-    heartRate = c;         // print heart rate value
+    unsigned char c = Wire.read();   // receive heart rate value (a byte)
+    return c;         // print heart rate value
   }
-  Serial.println("Exit loop");
+  return 0;
 }
