@@ -3,10 +3,12 @@
 #include "readHeartrate/readHeartrate.h"
 
 void setup() {
-  setupOled();
+  // setupOled();
+  Serial.begin(115200);
   setupHeartmonitor();
 }
 
 void loop() {
-  readHeartrate();
+  Serial.println(readHeartrate(), DEC);
+  delay(500);
 }

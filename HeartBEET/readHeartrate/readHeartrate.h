@@ -1,18 +1,6 @@
 #include <Wire.h>
 
-void setup() {
-  setupHeartmonitor();
-}
-
-void loop() {
-  Serial.println(readHeartrate(), DEC);
-  delay(500);
-}
-
 void setupHeartmonitor() {
-  Serial.begin(115200);
-  Serial.println("=======================================");
-  Serial.println("heart rate sensor:");
   Wire.begin();
 }
 
