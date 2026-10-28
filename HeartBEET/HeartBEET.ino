@@ -16,6 +16,11 @@ void setup() {
 void loop() {
   unsigned char heartRate = readHeartrate();
 
+  if (heartRate > 5) {
+    buzz(5); // Pin D5
+    Serial.println("Should Buzz");
+  }
+
   Serial.println(heartRate);
   displayHeartrate(heartRate);
 
