@@ -1,3 +1,5 @@
+#pragma once
+
 #include <Wire.h>
 
 void setupHeartmonitor() {
@@ -5,10 +7,11 @@ void setupHeartmonitor() {
 }
 
 unsigned char readHeartrate() {
-  Wire.requestFrom(0xA0 >> 1, 1);    // request 1 bytes from slave device
-  while(Wire.available()) {          // slave may send less than requested
-    unsigned char c = Wire.read();   // receive heart rate value (a byte)
-    return c;         // print heart rate value
+  Wire.requestFrom(0xA0 >> 1, 1);
+
+  if (Wire.available()) {
+    return Wire.read();
   }
-  return 0;
+
+  return 0; // No reading received.
 }
