@@ -15,8 +15,14 @@ void setupOled() {
 }
 
 void displayHeartrate(int heartRate) {
-  Oled.setCursor(0, 5);
-  Oled.print("                "); // Clear the previous reading.
-  Oled.setCursor(0, 5);
-  Oled.print(heartRate);
+  Oled.clearLine(4);
+  Oled.clearLine(5);
+  Oled.clearLine(6);
+
+  Oled.setCursor(0, 1);
+  Oled.print("HEART RATE:");
+
+  char reading[12];
+  snprintf(reading, sizeof(reading), "%d", heartRate);
+  Oled.draw2x2String(6, 4, reading);
 }
