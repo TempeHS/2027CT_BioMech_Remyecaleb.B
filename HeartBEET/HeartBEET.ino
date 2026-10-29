@@ -3,10 +3,6 @@
 #include "buzz/buzz.h"
 
 void setup() {
-  button_setup();
-  
-  
-  
   Serial.begin(115200);
   setupHeartmonitor(); // Start I2C before initializing the OLED.
   #if defined(WIRE_HAS_TIMEOUT)
@@ -18,7 +14,6 @@ void setup() {
 }
 
 void loop() {
-  get_button_data();
   unsigned char heartRate = readHeartrate();
 
   if (heartRate > 5) {
