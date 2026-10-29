@@ -3,7 +3,7 @@
 #include "buzz/buzz.h"
 
 void setup() {
-  button_setup()
+  button_setup();
   
   
   
@@ -18,7 +18,7 @@ void setup() {
 }
 
 void loop() {
-  get_button_data()
+  get_button_data();
   unsigned char heartRate = readHeartrate();
 
   if (heartRate > 5) {
