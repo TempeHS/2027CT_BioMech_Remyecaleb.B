@@ -10,7 +10,7 @@ The monitor will make Phillip feel comfortable enough to play tennis again.
 
 # 2 Patient Profile
 
-My name is Philip. Im a 66 year old ex tennis coach who hasn't been able to play tennis in years. I used to train every day but a heart condition made it so that it was to risky to do so now. After my last heart attack I have became to afraid to play tennis or coach either. I want a device that can give me peace of mind so that i can play tennis without risking burnout or a heart attack. I also want the device to not restrict movement while im playing.
+My name is Philip. I am a 66 year old ex-tennis coach who hasn't been able to play in years. I used to train every day but a heart condition made it so that it was too risky to do so now. After my last heart attack I have became to afraid to play tennis or coach as well. I want a device that can give me peace of mind so that I can play tennis without risking another heart attack. I also want the device to not restrict movement or get damaged while I'm playing.
 
 I need a monitor that can sense what is going wrong with my body and alert me so that damage can be prevented.
 
