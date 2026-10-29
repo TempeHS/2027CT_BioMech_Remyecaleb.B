@@ -6,5 +6,6 @@ void setupBuzzer() {
 
 void buzz(int BUZZER_PIN) {
   tone(BUZZER_PIN, 700);
-  delay(100);
+  delay(300);
+  noTone(BUZZER_PIN);
 }
