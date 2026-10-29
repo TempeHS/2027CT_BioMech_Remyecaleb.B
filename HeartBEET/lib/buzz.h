@@ -1,4 +1,4 @@
-  // Grove Buzzer on D5 (PWM)
+// Grove Buzzer on D5 (PWM)
 
 void setupBuzzer() {
   Serial.begin(115200);
