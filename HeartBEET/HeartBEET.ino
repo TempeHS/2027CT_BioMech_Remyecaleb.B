@@ -1,6 +1,6 @@
-#include "displayHeartrate/displayHeartrate.h"
-#include "readHeartrate/readHeartrate.h"
-#include "buzz/buzz.h"
+#include "lib/displayHeartrate.h"
+#include "lib/readHeartrate.h"
+#include "lib/buzz.h"
 
 int maxHeartrate;
 int minHeartrate;
@@ -11,9 +11,7 @@ void setup() {
   #if defined(WIRE_HAS_TIMEOUT)
     Wire.setWireTimeout(25000, true);
   #endif
-  Serial.println("I2C ready");
   setupOled();
-  Serial.println("Setup complete");
 
   maxHeartrate = 105;
   minHeartrate = 55;
@@ -24,9 +22,7 @@ void loop() {
 
   if (heartRate > maxHeartrate || heartRate < minHeartrate) {
     buzz(5); // Pin D5
-    Serial.println("Should Buzz");
   }
-
   Serial.println(heartRate);
   displayHeartrate(heartRate);
 
