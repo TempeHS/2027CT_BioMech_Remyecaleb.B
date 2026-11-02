@@ -1,4 +1,6 @@
-int seconds = 0;
+int seconds = 50;
+int minutes = 59;
+int hours = 0;
 
 
 void setup() {
@@ -6,7 +8,23 @@ void setup() {
 }
 
 void loop() {
-Serial.println(seconds);
-seconds = seconds + 1;
-delay(1000);
+  Serial.print("hours: ");
+  Serial.print(hours);
+  Serial.print("  minutes: ");
+  Serial.print(minutes);
+  Serial.print("  seconds: ");
+  Serial.println(seconds);
+
+  seconds = seconds + 1;
+
+  if (seconds == 60) {
+    seconds = 0;
+    minutes = minutes + 1;
+  }
+
+  if (minutes == 60) {
+    minutes = 0;
+    hours = hours + 1;
+  }
+  delay(1000);
 }
