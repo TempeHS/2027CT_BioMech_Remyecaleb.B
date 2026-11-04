@@ -1,6 +1,8 @@
 #include "lib/displayHeartrate.h"
 #include "lib/readHeartrate.h"
 #include "lib/buzz.h"
+#include "lib/displayTime.h"
+#include "lib/time.h"
 
 int maxHeartrate;
 int minHeartrate;
@@ -15,6 +17,7 @@ void setup() {
 
   maxHeartrate = 105;
   minHeartrate = 55;
+  rtc.set(2026, 11, 4, 22, 40, 0);   // y, m, d, h, min, s
 }
 
 void loop() {
@@ -25,7 +28,7 @@ void loop() {
     Serial.println("Buzz");
   }
   Serial.println(heartRate);
-  displayHeartrate(heartRate);
-
+  rtc.update();
+  displayTime(rtc.hours, rtc.minutes, rtc.seconds);
   delay(500);
 }
