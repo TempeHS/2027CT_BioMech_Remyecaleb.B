@@ -1,6 +1,7 @@
 int seconds = 50;
 int minutes = 59;
 int hours = 0;
+int days = 0;
 
 
 void setup() {
@@ -8,7 +9,9 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("hours: ");
+  Serial.print("Date: ");
+  Serial.print(days);
+  Serial.print("  hours: ");
   Serial.print(hours);
   Serial.print("  minutes: ");
   Serial.print(minutes);
@@ -26,5 +29,11 @@ void loop() {
     minutes = 0;
     hours = hours + 1;
   }
+
+  if (hours == 24) {
+    hours = 0;
+    days = days + 1;
+  }
+
   delay(1000);
 }
