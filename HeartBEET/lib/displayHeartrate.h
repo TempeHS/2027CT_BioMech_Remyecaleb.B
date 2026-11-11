@@ -2,19 +2,20 @@
 
 #include "Arduino_SensorKit.h"
 
-void setupOled() {
-  Serial.println("Setting Up OLED...");
-  Serial.flush();
+int BUTTON_PIN = 4;
 
-  Oled.begin();
-
-  Serial.println("OLED begun");
-  Oled.setFont(u8x8_font_chroma48medium8_r);
-  Oled.setCursor(0, 5);
-  Oled.print("OLED ready");
+bool holdingButton() {
+  int timeSincePressed = millis();
+  while (digitalRead(BUTTON_PIN)) {
+    if (millis() - timeSincePressed >= 300){
+      return true;
+    }
+  }
+  return false;
 }
 
 void displayHeartrate(int heartRate) {
+  Oled.clearLine(3);
   Oled.clearLine(4);
   Oled.clearLine(5);
   Oled.clearLine(6);

@@ -5,8 +5,8 @@
 platform arduino:avr 1.8.8
 
 # Libraries
-library DHT20 0.3.3
 library Grove-3-Axis-Digital-Accelerometer-2g-to-16g-LIS3DHTR 1.2.4
+library DHT20 0.3.3
 library Time 1.6.1
 library Arduino_Sensorkit 1.4.0
 
