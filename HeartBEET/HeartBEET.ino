@@ -17,7 +17,7 @@ void setup() {
 
   maxHeartrate = 105;
   minHeartrate = 55;
-  rtc.set(2026, 11, 4, 22, 40, 0);   // y, m, d, h, min, s
+  rtc.set(2026, 11, 11, 23, 59, 40);   // y, m, d, h, min, s
 }
 
 void loop() {
@@ -29,6 +29,6 @@ void loop() {
   }
   Serial.println(heartRate);
   rtc.update();
-  displayTime(rtc.hours, rtc.minutes, rtc.seconds);
+  displayTime(rtc.year, rtc.month, rtc.day, rtc.hours, rtc.minutes, rtc.seconds);
   delay(500);
 }
