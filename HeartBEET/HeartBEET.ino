@@ -32,6 +32,10 @@ void loop() {
   Serial.println(heartRate);
   while (holdingButton()) {
     displayHeartrate(readHeartrate());
+    if (heartRate > maxHeartrate || heartRate < minHeartrate) {
+      buzz(5); // Pin D5
+      Serial.println("Buzz");
+    }
   }
   displayTime(rtc.year, rtc.month, rtc.day, rtc.hours, rtc.minutes, rtc.seconds);
   delay(500);
