@@ -30,12 +30,21 @@ void loop() {
     Serial.println("Buzz");
   }
   Serial.println(heartRate);
+
+  bool first = true;
+  bool showedHeartrate = false;
   while (holdingButton()) {
-    displayHeartrate(readHeartrate());
+    displayHeartrate(readHeartrate(), first); // clears the screen on the first pass
+    first = false;
+    showedHeartrate = true;
     if (heartRate > maxHeartrate || heartRate < minHeartrate) {
       buzz(5); // Pin D5
       Serial.println("Buzz");
     }
+  }
+
+  if (showedHeartrate) {
+    Oled.clear(); // wipe the heart rate screen before drawing the time
   }
   displayTime(rtc.year, rtc.month, rtc.day, rtc.hours, rtc.minutes, rtc.seconds);
   delay(500);
