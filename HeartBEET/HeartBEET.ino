@@ -4,6 +4,7 @@
 #include "lib/displayTime.h"
 #include "lib/time.h"
 #include "lib/setupPieces.h"
+#include "lib/configureTime.h"
 
 int maxHeartrate;
 int minHeartrate;
@@ -22,6 +23,7 @@ void setup() {
 }
 
 void loop() {
+  highlightSelectedNumber();
   unsigned char heartRate = readHeartrate();
   rtc.update();
 
