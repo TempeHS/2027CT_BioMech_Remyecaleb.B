@@ -12,8 +12,6 @@ class Clock {
     _last = millis();
   }
 
-  // Call often (every loop). Uses millis(), so no delay() is needed
-  // and it catches up if loop() is slow.
   void update() {
     unsigned long now = millis();
     while (now - _last >= 1000) {

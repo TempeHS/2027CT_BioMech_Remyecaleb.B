@@ -1,11 +1,5 @@
 #pragma once
 
-#include <Wire.h>
-
-void setupHeartmonitor() {
-  Wire.begin();
-}
-
 unsigned char readHeartrate() {
   Wire.requestFrom(0xA0 >> 1, 1);
 
