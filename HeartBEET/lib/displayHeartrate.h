@@ -5,25 +5,33 @@
 int BUTTON_PIN = 4;
 
 bool holdingButton() {
-  int timeSincePressed = millis();
+  unsigned long pressedAt = millis();
   while (digitalRead(BUTTON_PIN)) {
-    if (millis() - timeSincePressed >= 300){
+    if (millis() - pressedAt >= 300) {
       return true;
     }
   }
   return false;
 }
 
-void displayHeartrate(int heartRate) {
-  Oled.clearLine(3);
-  Oled.clearLine(4);
-  Oled.clearLine(5);
-  Oled.clearLine(6);
+void displayHeartrate(int heartRate, bool forceRedraw = false) {
+  static int lastHeartRate = -1;
+  static unsigned long lastDraw = 0;
 
-  Oled.setCursor(0, 1);
-  Oled.print("HEART RATE:");
+  if (forceRedraw) {
+    Oled.clear();
+    Oled.setCursor(0, 1);
+    Oled.print("HEART RATE:");
+    lastHeartRate = -1;
+  }
+
+  if (heartRate == lastHeartRate || millis() - lastDraw < 250) {
+    return;
+  }
+  lastHeartRate = heartRate;
+  lastDraw = millis();
 
   char reading[12];
-  snprintf(reading, sizeof(reading), "%d", heartRate);
+  snprintf(reading, sizeof(reading), "%-3d", heartRate);
   Oled.draw2x2String(6, 4, reading);
 }
