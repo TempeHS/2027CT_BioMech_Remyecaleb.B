@@ -40,7 +40,7 @@ void loop() {
     first = false;
     showedHeartrate = true;
     if (heartRate > maxHeartrate || heartRate < minHeartrate) {
-      buzz(5); // Pin D5
+      no_buzz(5); // Pin D5
       Serial.println("Buzz");
     }
   }
