@@ -28,8 +28,8 @@ void loop() {
   rtc.update();
 
   if (heartRate > maxHeartrate || heartRate < minHeartrate) {
-    buzz(5); // Pin D5
-    Serial.println("Buzz");
+    buzz1(5); // Pin D5
+    Serial.println("Buzz1");
   }
   Serial.println(heartRate);
 
@@ -40,8 +40,8 @@ void loop() {
     first = false;
     showedHeartrate = true;
     if (heartRate > maxHeartrate || heartRate < minHeartrate) {
-      no_buzz(5); // Pin D5
-      Serial.println("Buzz");
+      Serial.println("Buzz2");
+      buzz2(5);
     }
   }
 
