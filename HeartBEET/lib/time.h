@@ -29,7 +29,7 @@ class Clock {
     return (m == 2 && isLeap(y)) ? 29 : d[m - 1];
   }
 
-  // "YYYY-MM-DD HH:MM:SS"
+  // "YYYY-MM-DD hh:mm:ss"
   String toString() const {
     char buf[20];
     snprintf(buf, sizeof(buf), "%04d-%02d-%02d %02d:%02d:%02d", year, month, day, hours, minutes, seconds);
