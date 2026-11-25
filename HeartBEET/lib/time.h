@@ -36,7 +36,7 @@ class Clock {
     return String(buf);
   }
 
- private:
+  private:
   unsigned long _last = 0;
 
   void tick() {
